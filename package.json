@@ -1,4 +1,9 @@
 {
+  "name": "clean-code-todo",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "app.js",
   "devDependencies": {
     "eslint": "^10.13.0",
     "globals": "^17.13.0",
