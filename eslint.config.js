@@ -1,18 +1,18 @@
-import globals from "globals";
+import globals from 'globals';
 
 export default [
   {
     languageOptions: {
-      ecmaVersion: "latest",
-      sourceType: "module",
+      ecmaVersion: 'latest',
+      sourceType: 'module',
       globals: {
         ...globals.browser,
       },
     },
     rules: {
-      "no-var": "error",
-      "prefer-const": "error",
-      "no-console": "warn",
+      'no-var': 'error',
+      'prefer-const': 'error',
+      'no-console': 'warn',
     },
   },
 ];
