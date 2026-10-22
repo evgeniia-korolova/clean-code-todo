@@ -117,7 +117,7 @@ const taskIncomplete = function () {
 //The glue to hold it all together.
 
 //Set the click handler to the addTask function.
-addButton.onclick = addTask;
+
 addButton.addEventListener('click', addTask);
 
 const bindTaskEvents = function (taskListItem, checkBoxEventHandler) {
@@ -136,15 +136,15 @@ const bindTaskEvents = function (taskListItem, checkBoxEventHandler) {
 
 //cycle over incompleteTaskHolder ul list items
 //for each list item
-for (let i = 0; i < incompleteTaskHolder.children.length; i++) {
-  //bind events to list items chldren(tasksCompleted)
-  bindTaskEvents(incompleteTaskHolder.children[i], taskCompleted);
-}
+const listsToBind = [
+  { holder: incompleteTaskHolder, handler: taskCompleted },
+  { holder: completedTasksHolder, handler: taskIncomplete },
+];
 
-//cycle over completedTasksHolder ul list items
-for (let i = 0; i < completedTasksHolder.children.length; i++) {
-  //bind events to list items chldren(tasksIncompleted)
-  bindTaskEvents(completedTasksHolder.children[i], taskIncomplete);
+for (const listConfig of listsToBind) {
+  for (let i = 0; i < listConfig.holder.children.length; i++) {
+    bindTaskEvents(listConfig.holder.children[i], listConfig.handler);
+  }
 }
 
 // Issues with usability don't get seen until they are in front of a human tester.
